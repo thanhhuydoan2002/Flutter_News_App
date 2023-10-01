@@ -5,6 +5,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: PageView.builder(
+        controller: PageController(initialPage: 0),
+        scrollDirection: Axis.vertical,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Center(
+              child: Text("Page No. $index"),
+            );
+
+      }),
+    );
   }
 }
