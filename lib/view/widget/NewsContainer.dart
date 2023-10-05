@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/view/detail_view.dart';
 
 class NewsContainer extends StatelessWidget {
   String imgUrl;
@@ -41,22 +42,27 @@ class NewsContainer extends StatelessWidget {
                 children: [
                 const SizedBox(height: 20,),
                 Text(
-                    newsHead,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    )
+                    newsHead.length > 70 ? newsHead.substring(0, 70) : newsHead,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
 
                   const SizedBox(height: 10,),
-                  Text(newsDes, style: const TextStyle(fontSize: 12, color: Colors.black38)),
+                  Text(newsDes,
+                      style: const TextStyle(fontSize: 12, color: Colors.black38)
+                  ),
 
                 const SizedBox(height: 10,),
-                Text(newsCnt, style: const TextStyle(fontSize: 16),),
+                Text(
+                  newsCnt.length >250 ? newsCnt.substring(0,250) :
+                  "${newsCnt.toString().substring(0, newsCnt.length - 15)}...",
+                  style: const TextStyle(fontSize: 15),
+                ),
+
+
               ],),
             ),
 
-            Spacer(),
+            const Spacer(),
 
             //*** READ MORE BUTTON ***
             Row(
@@ -66,13 +72,13 @@ class NewsContainer extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: ElevatedButton(
                       onPressed: () {
-                        print("GOING TO $newsUrl");
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailViewScreen(newsUrl: newsUrl)));
                       },
                       child: Text("Read More")),
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
 
       ]),
 

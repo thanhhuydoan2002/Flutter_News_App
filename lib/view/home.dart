@@ -13,14 +13,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late NewsArt newsArt;
 
-  GetNews() async{
+  getNews() async{
     newsArt = await FetchNews.fetchNews();
     setState(() {});
   }
 
   @override
   void initState() {
-    GetNews();
+    getNews();
     super.initState();
   }
 
@@ -32,8 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.vertical,
 
           onPageChanged: (value) {
-            GetNews();
+            getNews();
           },
+
           itemBuilder: (context, index) {
 
             return NewsContainer(
