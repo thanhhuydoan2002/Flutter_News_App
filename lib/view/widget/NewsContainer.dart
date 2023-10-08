@@ -27,12 +27,14 @@ class NewsContainer extends StatelessWidget {
           children: [
 
             // *** NEWS NETWORK IMAGE ***
-            Image.network(
+            FadeInImage.assetNetwork(
                 height: 400,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.cover,
-                imgUrl
+                placeholder: "assets/img/img1.png",
+                image: imgUrl
             ),
+
 
             // *** NEWS HEADING AND DESCRIPTION ***
             Container(
@@ -40,21 +42,25 @@ class NewsContainer extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                const SizedBox(height: 20,),
+                const SizedBox(height: 30,),
                 Text(
-                    newsHead.length > 70 ? newsHead.substring(0, 70) : newsHead,
+                    newsHead.length > 90
+                        ? "${newsHead.substring(0, 90)}..."
+                        : newsHead,
                     style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
 
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 30,),
                   Text(newsDes,
                       style: const TextStyle(fontSize: 12, color: Colors.black38)
                   ),
 
-                const SizedBox(height: 10,),
+                const SizedBox(height: 30,),
                 Text(
-                  newsCnt.length >250 ? newsCnt.substring(0,250) :
-                  "${newsCnt.toString().substring(0, newsCnt.length - 15)}...",
+                  newsCnt != "--" ?
+                  newsCnt.length > 250
+                      ? newsCnt.substring(0,250)
+                      : "${newsCnt.toString().substring(0, newsCnt.length - 2)}..." : newsCnt,
                   style: const TextStyle(fontSize: 15),
                 ),
 
@@ -74,10 +80,12 @@ class NewsContainer extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => DetailViewScreen(newsUrl: newsUrl)));
                       },
-                      child: Text("Read More")),
+                      child: const Text("Read More")),
                 ),
               ],
             ),
+
+
             const SizedBox(height: 20,),
 
       ]),

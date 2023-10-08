@@ -25,24 +25,18 @@ class FetchNews{
   ];
 
   static Future<NewsArt> fetchNews() async{
-    final _random = new Random();
-    var sourcesID = sourcesId[_random.nextInt(sourcesId.length)];
+    final random = Random();
+    var sourcesID = sourcesId[random.nextInt(sourcesId.length)];
     print(sourcesID);
 
 
     Response response = await get(Uri.parse(
         "https://newsapi.org/v2/top-headlines?sources=$sourcesID&apiKey=21160ac4085b480b8bd84559f52fadcb"));
 
-    Map body_data = jsonDecode(response.body);
-    List articles = body_data["articles"];
-    //print(articles);
+    Map bodyData = jsonDecode(response.body);
+    List articles = bodyData["articles"];
 
-    print("******************************");
-
-    var myArticle = articles[_random.nextInt(articles.length)];
-    print(myArticle);
-
-    print("******************************");
+    var myArticle = articles[random.nextInt(articles.length)];
 
     return NewsArt.fromAPItoApp(myArticle);
   }
