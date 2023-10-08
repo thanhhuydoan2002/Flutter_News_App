@@ -1,16 +1,33 @@
-# news_app
+# Shockwave News 
 
-A new Flutter project.
+A news app project, 
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+This app has currently three main Features:
 
-A few resources to get you started if this is your first Flutter project:
+* Load news when page changed.
+* Web view navigation.
+* Simple and easy access to the latest articles.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tech Stack Used
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* NewsAPI.
+* HTTP requests.
+* WebView.
+
+## Screenshots
+
+Splash Screen
+
+<a href='https://postimg.cc/bdDr8Q9j' target='_blank'><img src='https://i.postimg.cc/sfKhYmB1/sc1.png' border='0' alt='sc1'/></a><br/><br/>
+
+News Screen
+
+<a href='https://postimg.cc/CRNLJJSb' target='_blank'><img src='https://i.postimg.cc/N0h9sPnC/sc2.png' border='0' alt='sc2'/></a><br/><br/>
+
+WebView Screen
+
+<a href='https://postimg.cc/G9W2pHXT' target='_blank'><img src='https://i.postimg.cc/hPj7pmxs/sc3.png' border='0' alt='sc3'/></a><br/><br/>
+
+## 🔗 Links
